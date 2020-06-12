@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="keywords" content="downloader,youtube" />
+<title></title>
+<style type="text/css">
+  .main{
+     margin: 0px auto;
+     background-color: lightblue;
+     width:auto;
+     height:500px;
+  }
+  .main .header{
+     padding: 20px;
+     text-align:center;
+     font-size:20px;
+     display:block;
+     background-color:#28009e;
+     color:green;
+  }
+  
+  .main .body{
+     padding:30px;
+     display:block;
+     margin-top:100px;
+     background:#00b3b3;
+     box-shadow:1px 5px 10px black;
+  }
+  .main {
+    border:#28009e solid 5px;
+    text-align:center;
+    background:#99bbff;
+  }
+  input{
+    outline:none;
+    border-radius:10px;
+    border-color:gray;
+  }
+  
+  .footer{
+    margin-top:100px;
+   
+  }
+  
+</style>
+</head>
+<body>
+ <div class="main">
+         <div class="header">
+             <b> Youtube Downloader</b>
+        </div>
+        <div class="body">
+       <form method="get"action="/download">
+       
+          url <input name ="url"type="text"placeholder="Example: https://m.youtube.com/wacth?=xxx"style="width: 300px;"/>
+           </br>
+          <label> kualitas</label>
+          </br>
+         <div class="radio">
+             <input type="radio"name="q"value="high"/>high
+             <input type="radio"name="q"value="low"/>low
+         </div>
+           <label>format</label>
+              </br>
+          <div class="radio">
+               <input type="radio"name="f"value="video"/>video
+              <input type="radio"name="f"value="audio"/>music
+          </div>
+          <input type="submit"value="download"/>
+           </form>
+       </div>
+       <div class="footer">
+       
+       help?   <a href="https://api.whatsapp.com/send?phone=+6287732168347&text=help....">contact me</a>
+       
+       </div>
+       
+ </div>
+</body>

@@ -4,7 +4,6 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4000;
-const path = require("path");
 app.use(cors());
 
 app.get('/download',  (req,res)=>{
@@ -19,7 +18,6 @@ app.get('/download',  (req,res)=>{
          var yt = ytdl(url,{filter: "audioonly",quality:"highestaudio"});
          res.header('Content-Type', 'audio/mpeg');
          res.header("Content-Disposition", 'attachment;\  filename='+info.title+'.mp3');
-      //   console.log(info.formats[1]);
          yt.pipe(res);
         })
     }
@@ -28,25 +26,25 @@ app.get('/download',  (req,res)=>{
         ytdl.getInfo(url,(err,info)=>{
         var yt = ytdl(url,{filter: "audioonly",quality:"lowestaudio"});
         res.header('Content-Type', 'audio/mpeg');
-        res.header("Content-Disposition", 'attachment;\  filename='+info.title+'.mp3');
+        res.header("Content-Disposition", 'attachment;\  filename='+info.title.replace>
         yt.pipe(res);
         })
    }
    else if(format=="video"&&quality=="high")
    {
         ytdl.getInfo(url,(err,info)=>{
-        var yt = ytdl(url,{format:"mp4",quality:"highest"});
-        res.header('Content-Type', 'video/mp4');
-        res.header("Content-Disposition", 'attachment;\  filename='+info.title+'.mp4');
+        var yt = ytdl(url,{filter: "audioonly",quality:"lowestaudio"});
+        res.header('Content-Type', 'audio/mpeg');
+        res.header("Content-Disposition", 'attachment;\  filename='+info.title.replace>
         yt.pipe(res);
         })
    }
    else if(format=="video"&&quality=="low")
    {
         ytdl.getInfo(url,(err,info)=>{
-        var yt = ytdl(url,{format:"mp4",quality:"lowest"});
-        res.header('Content-Type', 'video/mp4');
-        res.header("Content-Disposition", 'attachment;\  filename='+info.title+'.mp4');
+        var yt = ytdl(url,{filter: "audioonly",quality:"lowestaudio"});
+        res.header('Content-Type', 'audio/mpeg');
+        res.header("Content-Disposition", 'attachment;\  filename='+info.title.replace>
         yt.pipe(res);
         })
    }
@@ -59,9 +57,4 @@ app.get('/download',  (req,res)=>{
     res.redirect("/")
 
 }  //  res.send("Example: "+fullUrl+"?url=https://youtu.be/xxx")
-})
-
-app.get("/",(req,res)=>{
-     res.sendFile(path.join(__dirname+"/index.html"))
-
 }).listen(PORT)
